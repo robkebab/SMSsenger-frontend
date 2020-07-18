@@ -1,5 +1,10 @@
 .App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   text-align: center;
+  width: 100vw;
 }
 
 .App-logo {
@@ -35,4 +40,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+input {
+  margin: 10px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 60%;
 }
