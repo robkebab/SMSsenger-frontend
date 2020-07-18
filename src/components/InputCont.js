@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { URL } from "../services/variables";
 
 const initialState = {
   number: "",
@@ -13,7 +14,16 @@ const InputCont = () => {
   }
 
   const handleSubmit = () => {
-    console.log(form.number, form.message)
+    fetch(URL + "send", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        To: form.number,
+        Text: form.message 
+      })
+    })
   }
 
   return (
