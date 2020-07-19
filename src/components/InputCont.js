@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { URL } from "../services/variables";
+import axios from 'axios'
 
 const initialState = {
   number: "",
@@ -14,15 +15,9 @@ const InputCont = () => {
   }
 
   const handleSubmit = () => {
-    fetch(URL + "send", {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        To: form.number,
-        Text: form.message 
-      })
+    axios.post(URL + "send", {
+      To: form.number,
+      Text: form.message 
     })
   }
 
