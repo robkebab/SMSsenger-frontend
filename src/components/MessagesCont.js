@@ -2,16 +2,18 @@ import React, { useState, useEffect } from "react";
 import { URL } from "../services/variables";
 import { ActionCable } from "react-actioncable-provider";
 import axios from "axios";
+import {messageState} from "../services/MsgState"
+import {useRecoilState} from 'recoil'
 import Message from "./Message";
 import Filter from "./Filter";
 
 const MessagesCont = () => {
   const [filter, setFilter] = useState(false);
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useRecoilState(messageState);
   const [filteredMsgs, setFilteredMsgs] = useState([]);
 
   const addMessage = (message) => {
-    setMessages((prev) => [...prev, message]);
+    setMessages((prev) => [message, ...prev]);
   };
 
   const handleFilter = (start, end) => {
@@ -21,7 +23,7 @@ const MessagesCont = () => {
         URL + `history?start=${start}&end=${end}`
       );
       setFilter(true);
-      setFilteredMsgs(response.data);
+      setFilteredMsgs(response.data.reverse());
     };
     getLog();
   };
@@ -34,7 +36,7 @@ const MessagesCont = () => {
   useEffect(() => {
     const getMessages = async () => {
       let msgs = await axios.get(URL + "messages");
-      setMessages(msgs.data);
+      setMessages(msgs.data.reverse());
       // console.log(msgs.data)
     };
     getMessages();

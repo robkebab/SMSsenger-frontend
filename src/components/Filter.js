@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { URL } from "../services/variables";
 import axios from "axios";
 
-const initialForm = {
+const initialState = {
   start: "",
   end: "",
 };
 
 const Filter = ({handleFilter, handleClear}) => {
-  const [form, setForm] = useState(initialForm);
+  const [form, setForm] = useState(initialState);
 
   const handleChange = (e) => {
     console.log(e.target.value);

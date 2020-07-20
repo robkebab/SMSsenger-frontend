@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { URL } from "../services/variables";
+import { messageState } from "../services/MsgState";
+import { useRecoilState } from "recoil";
 import axios from "axios";
 
 const initialState = {
@@ -9,18 +11,24 @@ const initialState = {
 
 const InputCont = () => {
   const [form, setForm] = useState(initialState);
+  const [message, setMessages] = useRecoilState(messageState);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = () => {
-    axios.post(URL + "send", {
-      message: {
-        To: form.number,
-        Text: form.message,
-      },
-    });
+    const getNew = async () => {
+      const newMessage = await axios.post(URL + "send", {
+        message: {
+          To: form.number,
+          Text: form.message,
+        },
+      });
+      setMessages((prev) => [newMessage.data, ...prev]);
+      setForm(initialState);
+    };
+    getNew();
   };
 
   return (
@@ -46,10 +54,10 @@ const InputCont = () => {
               value={form.message}
             />
           </div>
-          <button type="button" name="send" value="send" onClick={handleSubmit}>
-            Send
-          </button>
         </div>
+        <button type="button" name="send" value="send" onClick={handleSubmit}>
+          Send
+        </button>
       </div>
     </div>
   );
