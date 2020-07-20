@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { URL } from "../services/variables";
-import { localURL } from "../services/variables";
 import axios from "axios";
 
 const initialState = {
@@ -16,7 +15,7 @@ const InputCont = () => {
   };
 
   const handleSubmit = () => {
-    axios.post(localURL + "send", {
+    axios.post(URL + "send", {
       message: {
         To: form.number,
         Text: form.message,
@@ -25,28 +24,33 @@ const InputCont = () => {
   };
 
   return (
-    <div className="input-container">
+    <div className="send">
       <div>
-        <label>Phone number:</label>
-        <input
-          onChange={handleChange}
-          name="number"
-          placeholder="Ex: +12345678899"
-          value={form.number}
-        />
+        <h2>Send Message</h2>
+        <div className="input-cont">
+          <div>
+            <label>Phone number:</label>
+            <input
+              onChange={handleChange}
+              name="number"
+              placeholder="Ex: +12345678899"
+              value={form.number}
+            />
+          </div>
+          <div>
+            <label>Message:</label>
+            <input
+              onChange={handleChange}
+              name="message"
+              placeholder="Hello, World!"
+              value={form.message}
+            />
+          </div>
+          <button type="button" name="send" value="send" onClick={handleSubmit}>
+            Send
+          </button>
+        </div>
       </div>
-      <div>
-        <label>Message:</label>
-        <input
-          onChange={handleChange}
-          name="message"
-          placeholder="Hello, World!"
-          value={form.message}
-        />
-      </div>
-      <button type="button" name="send" value="send" onClick={handleSubmit}>
-        Send
-      </button>
     </div>
   );
 };

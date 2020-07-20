@@ -1,34 +1,60 @@
-import React, {useState, useEffect} from 'react';
-import {localURL} from '../services/variables'
-import { ActionCable } from 'react-actioncable-provider'
-import axios from 'axios'
-import Message from './Message';
+import React, { useState, useEffect } from "react";
+import { URL } from "../services/variables";
+import { ActionCable } from "react-actioncable-provider";
+import axios from "axios";
+import Message from "./Message";
+import Filter from "./Filter";
 
 const MessagesCont = () => {
-    const [messages, setMessages] = useState([])
+  const [filter, setFilter] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [filteredMsgs, setFilteredMsgs] = useState([]);
 
-    const addMessage = (message) => {
-        console.log(message)
-        setMessages(prev => [...prev, message])
-    }
+  const addMessage = (message) => {
+    setMessages((prev) => [...prev, message]);
+  };
 
-    useEffect(() => {
-       const getMessages = async () => {
-            let msgs = await axios.get(localURL)
-            setMessages(msgs.data)
-            // console.log(msgs.data)
-       } 
-       getMessages()
-    }, [])
+  const handleFilter = (start, end) => {
+    console.log("submitting");
+    const getLog = async () => {
+      const response = await axios.get(
+        URL + `history?start=${start}&end=${end}`
+      );
+      setFilter(true);
+      setFilteredMsgs(response.data);
+    };
+    getLog();
+  };
 
-    return (
-        <div>
-            <ActionCable 
-            channel={{ channel: 'SessionChannel' }}
-            onReceived={addMessage}/>
-            {messages.map(msg => <Message key={msg.id} message={msg} />)}
-        </div>
-    );
+  const handleClear = () => {
+    setFilter(false);
+    setFilteredMsgs([]);
+  };
+
+  useEffect(() => {
+    const getMessages = async () => {
+      let msgs = await axios.get(URL + "messages");
+      setMessages(msgs.data);
+      // console.log(msgs.data)
+    };
+    getMessages();
+  }, []);
+
+  return (
+    <div className="logs">
+      <h2>Logs</h2>
+      <Filter handleFilter={handleFilter} handleClear={handleClear} />
+      <div className="msg-cont">
+        <ActionCable
+          channel={{ channel: "SessionChannel" }}
+          onReceived={addMessage}
+        />
+        {filter
+          ? filteredMsgs.map((msg) => <Message key={msg.id} message={msg} />)
+          : messages.map((msg) => <Message key={msg.id} message={msg} />)}
+      </div>
+    </div>
+  );
 };
 
 export default MessagesCont;

@@ -1,8 +1,5 @@
 .App {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  max-height: 100vh;
   text-align: center;
   width: 100vw;
 }
@@ -42,13 +39,61 @@
   }
 }
 
+.filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.filter-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
 input {
   margin: 10px;
 }
 
-.input-container {
-  display: flex;
-  justify-content: space-evenly;
+.logs {
   align-items: center;
-  width: 60%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.main {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.send {
+  justify-self: flex-start;
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 90vh;
+}
+
+.input-cont {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.msg {
+  align-items: center;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.msg-cont {
+  margin-top: 20px;
+  overflow-y: scroll;
 }
