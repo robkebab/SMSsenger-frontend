@@ -5,13 +5,13 @@ import { useRecoilState } from "recoil";
 import axios from "axios";
 
 const initialState = {
-  number: "12106729886",
+  number: "",
   message: "",
 };
 
 const InputCont = () => {
   const [form, setForm] = useState(initialState);
-  const [message, setMessages] = useRecoilState(messageState);
+  const [messages, setMessages] = useRecoilState(messageState);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

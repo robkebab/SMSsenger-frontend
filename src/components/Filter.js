@@ -41,7 +41,7 @@ const Filter = ({handleFilter, handleClear}) => {
         <button type="button" name="filter" onClick={() => handleFilter(form.start, form.end)}>
           Filter
         </button>
-        <button type="button" name="Clear" onClick={handleClear}>
+        <button type="button" name="Clear" onClick={() => {handleClear(); setForm(initialState)}}>
           Clear
         </button>
       </div>
