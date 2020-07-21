@@ -37,7 +37,7 @@ const InputCont = () => {
       <h3>Send Message</h3>
       <div className="input-cont">
         <div>
-          <label>Phone number:</label>
+          <label>Telephone:</label>
           <input
             onChange={handleChange}
             name="number"
