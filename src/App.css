@@ -1,7 +1,10 @@
 .App {
-  max-height: 100vh;
+  display: grid;
+  grid-template-rows: 15% 20% 65%;
+  height: 100vh;
   text-align: center;
   width: 100vw;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -39,38 +42,69 @@
   }
 }
 
-.filter {
+.date-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.date {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.filter {
+  display: grid;
+  grid-template-rows: 25% 50%;
 }
 
 .filter-buttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-input {
+.header {
+  background-color: lightblue;
+  border-bottom: 1px solid #333;
+}
+
+h1 {
+  color: #fff;
+  font-size: 2em;
+  margin-top: 1.5em;
+}
+
+h3 {
+  font-size: 1.5em;
   margin: 10px;
 }
 
-.logs {
+/* input {
+  margin: 10px;
+} */
+
+/* .logs {
   align-items: center;
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: flex-start;
   height: 90vh;
-}
+} */
 
 .main {
-  align-items: center;
-  display: flex;
-  flex: 1;
-  justify-content: center;
+  background-color: khaki;
 }
 
-.send {
+/* .send {
   justify-self: flex-start;
   align-items: center;
   display: flex;
@@ -78,9 +112,9 @@ input {
   flex-direction: column;
   justify-content: flex-start;
   height: 90vh;
-}
+} */
 
-.input-cont {
+/* .input-cont {
   align-items: center;
   display: flex;
   justify-content: space-around;
@@ -97,4 +131,4 @@ input {
   margin-top: 20px;
   height: 100%;
   overflow-y: scroll;
-}
+} */

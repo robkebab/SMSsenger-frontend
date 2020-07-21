@@ -34,7 +34,7 @@ const InputCont = () => {
   return (
     <div className="send">
       <div>
-        <h2>Send Message</h2>
+        <h3>Send Message</h3>
         <div className="input-cont">
           <div>
             <label>Phone number:</label>

@@ -44,8 +44,8 @@ const MessagesCont = () => {
 
   return (
     <div className="logs">
-      <h2>Logs</h2>
-      <Filter handleFilter={handleFilter} handleClear={handleClear} />
+      {/* <h2>Logs</h2>
+      <Filter handleFilter={handleFilter} handleClear={handleClear} /> */}
       <div className="msg-cont">
         <ActionCable
           channel={{ channel: "SessionChannel" }}

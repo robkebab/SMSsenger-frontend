@@ -7,7 +7,7 @@ const initialState = {
   end: "",
 };
 
-const Filter = ({handleFilter, handleClear}) => {
+const Filter = ({ handleFilter, handleClear }) => {
   const [form, setForm] = useState(initialState);
 
   const handleChange = (e) => {
@@ -16,9 +16,12 @@ const Filter = ({handleFilter, handleClear}) => {
   };
 
   return (
-    <>
-      <div className="filter">
-        <div>
+    <div className="filter">
+      <div>
+        <h3>Logs</h3>
+      </div>
+      <div className="date-box">
+        <div className="date">
           <label>Start Time:</label>
           <input
             type="datetime-local"
@@ -27,7 +30,8 @@ const Filter = ({handleFilter, handleClear}) => {
             value={form.start}
           />
         </div>
-        <div>
+
+        <div className="date">
           <label>End Time:</label>
           <input
             type="datetime-local"
@@ -37,16 +41,38 @@ const Filter = ({handleFilter, handleClear}) => {
           />
         </div>
       </div>
+
       <div className="filter-buttons">
-        <button type="button" name="filter" onClick={() => handleFilter(form.start, form.end)}>
+        <button
+          style={{marginRight: 5}}
+          type="button"
+          name="filter"
+          onClick={() => handleFilter(form.start, form.end)}
+        >
           Filter
         </button>
-        <button type="button" name="Clear" onClick={() => {handleClear(); setForm(initialState)}}>
+        <button
+          style={{marginLeft: 5}}
+          type="button"
+          name="Clear"
+          onClick={() => {
+            handleClear();
+            setForm(initialState);
+          }}
+        >
           Clear
         </button>
       </div>
-    </>
+    </div>
   );
 };
 
 export default Filter;
+
+{
+  /* <div>
+        
+        
+      </div>
+      */
+}
