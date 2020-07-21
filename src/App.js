@@ -9,18 +9,20 @@ function App() {
   return (
     <RecoilRoot>
       <div className="App">
+
         <div className="header">
           <h1>Welcome to SMSsenger!</h1>
         </div>
+        
         <div className="features">
           <Filter />
           <InputCont />
-          {/* <MessagesCont />
-          <InputCont /> */}
         </div>
+
         <div className="main">
           <MessagesCont />
         </div>
+
       </div>
     </RecoilRoot>
   );

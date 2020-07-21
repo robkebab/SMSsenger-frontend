@@ -33,28 +33,29 @@ const InputCont = () => {
 
   return (
     <div className="send">
-      <div>
-        <h3>Send Message</h3>
-        <div className="input-cont">
-          <div>
-            <label>Phone number:</label>
-            <input
-              onChange={handleChange}
-              name="number"
-              placeholder="Ex: +12345678899"
-              value={form.number}
-            />
-          </div>
-          <div>
-            <label>Message:</label>
-            <input
-              onChange={handleChange}
-              name="message"
-              placeholder="Hello, World!"
-              value={form.message}
-            />
-          </div>
+      <h3>Send Message</h3>
+      <div className="input-cont">
+        <div>
+          <label>Phone number:</label>
+          <input
+            onChange={handleChange}
+            name="number"
+            placeholder="Ex: +12345678899"
+            value={form.number}
+          />
         </div>
+
+        <div>
+          <label>Message:</label>
+          <input
+            onChange={handleChange}
+            name="message"
+            placeholder="Hello, World!"
+            value={form.message}
+          />
+        </div>
+      </div>
+      <div className="sendbtn-box">
         <button type="button" name="send" value="send" onClick={handleSubmit}>
           Send
         </button>

@@ -5,7 +5,6 @@ import axios from "axios";
 import {messageState} from "../services/MsgState"
 import {useRecoilState} from 'recoil'
 import Message from "./Message";
-import Filter from "./Filter";
 
 const MessagesCont = () => {
   const [filter, setFilter] = useState(false);
@@ -43,9 +42,6 @@ const MessagesCont = () => {
   }, []);
 
   return (
-    <div className="logs">
-      {/* <h2>Logs</h2>
-      <Filter handleFilter={handleFilter} handleClear={handleClear} /> */}
       <div className="msg-cont">
         <ActionCable
           channel={{ channel: "SessionChannel" }}
@@ -55,7 +51,6 @@ const MessagesCont = () => {
           ? filteredMsgs.map((msg) => <Message key={msg.id} message={msg} />)
           : messages.map((msg) => <Message key={msg.id} message={msg} />)}
       </div>
-    </div>
   );
 };
 
