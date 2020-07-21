@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { URL } from "../services/variables";
 import { messageState } from "../services/MsgState";
 import { useRecoilState } from "recoil";
+import Button from 'react-bootstrap/Button'
 import axios from "axios";
 
 const initialState = {
@@ -56,9 +57,10 @@ const InputCont = () => {
         </div>
       </div>
       <div className="sendbtn-box">
-        <button type="button" name="send" value="send" onClick={handleSubmit}>
+      <Button size="sm" variant="outline-info" onClick={handleSubmit}>Send</Button>
+        {/* <button type="button" name="send" value="send" onClick={handleSubmit}>
           Send
-        </button>
+        </button> */}
       </div>
     </div>
   );

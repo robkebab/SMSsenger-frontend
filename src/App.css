@@ -1,6 +1,6 @@
 .App {
   display: grid;
-  grid-template-rows: 15% 20% 65%;
+  grid-template-rows: 15% 25% 60%;
   height: 100vh;
   text-align: center;
   width: 100vw;
@@ -55,6 +55,7 @@
 }
 
 .features {
+  box-shadow: 0 3px 5px rgba(182, 182, 182, 0.6);
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -72,8 +73,8 @@
 }
 
 .header {
-  background-color: lightblue;
-  border-bottom: 1px solid #333;
+  background-color: #61b5ff;
+  /* border-bottom: 1px solid #333; */
 }
 
 h1 {
@@ -107,7 +108,9 @@ h3 {
 }
 
 .main {
- /* margin-bottom: 20px; */
+ align-items: center;
+ display: flex;
+ justify-content: center;
 }
 
 /* .msg {
@@ -116,6 +119,10 @@ h3 {
   display: flex;
   justify-content: flex-start;
 } */
+.msg-card {
+  margin: 10px;
+  padding: 10px;
+}
 
 .msg-cont {
   align-items: center;
@@ -123,8 +130,27 @@ h3 {
   flex-direction: column;
   height: 52vh;
   justify-content: flex-start;
-  margin-top: 4%;
   overflow-y: scroll;
+  width: 65%;
+}
+
+/* .msg-text {
+  padding: 5px 20px;
+} */
+
+.msg-left {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.msg-right {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   width: 100%;
 }
 
@@ -137,4 +163,5 @@ h3 {
   align-items: center;
   display: flex;
   justify-content: center;
+  margin-bottom: 10px;
 }

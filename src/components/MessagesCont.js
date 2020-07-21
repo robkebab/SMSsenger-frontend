@@ -2,34 +2,17 @@ import React, { useState, useEffect } from "react";
 import { URL } from "../services/variables";
 import { ActionCable } from "react-actioncable-provider";
 import axios from "axios";
-import {messageState} from "../services/MsgState"
-import {useRecoilState} from 'recoil'
+import {messageState, filteredMessagesState, filterState} from "../services/MsgState"
+import {useRecoilValue, useRecoilState} from 'recoil'
 import Message from "./Message";
 
 const MessagesCont = () => {
-  const [filter, setFilter] = useState(false);
+  const filter = useRecoilValue(filterState);
+  const filteredMsgs = useRecoilValue(filteredMessagesState);
   const [messages, setMessages] = useRecoilState(messageState);
-  const [filteredMsgs, setFilteredMsgs] = useState([]);
 
   const addMessage = (message) => {
     setMessages((prev) => [message, ...prev]);
-  };
-
-  const handleFilter = (start, end) => {
-    console.log("submitting");
-    const getLog = async () => {
-      const response = await axios.get(
-        URL + `history?start=${start}&end=${end}`
-      );
-      setFilter(true);
-      setFilteredMsgs(response.data.reverse());
-    };
-    getLog();
-  };
-
-  const handleClear = () => {
-    setFilter(false);
-    setFilteredMsgs([]);
   };
 
   useEffect(() => {
