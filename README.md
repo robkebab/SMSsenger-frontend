@@ -1,8 +1,11 @@
 # SMSsenger
+A simple web app displaying the power of Plivo's Messaging API.
+
+![SMSsenger demo](./public/sender.gif)
 
 ## Features
 
-A simple web app which:
+This app:
 - allows you to compose and send SMS text messages to any phone number in the world.
 - View a historical log of all the SMS messages sent or received by the app during a given time period.
 
