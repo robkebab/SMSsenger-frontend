@@ -1,10 +1,10 @@
 .App {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 15% 25% 60%;
   height: 100vh;
   text-align: center;
   width: 100vw;
+  overflow: hidden;
 }
 
 .App-logo {
@@ -42,13 +42,127 @@
   }
 }
 
-input {
+.date-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.date {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.features {
+  box-shadow: 0 3px 5px rgba(182, 182, 182, 0.6);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.filter {
+  display: grid;
+  grid-template-rows: 25% 50%;
+}
+
+.filter-buttons {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.header {
+  background-color: #61b5ff;
+  /* border-bottom: 1px solid #333; */
+}
+
+h1 {
+  color: #fff;
+  font-size: 2em;
+  margin-top: 1.5em;
+}
+
+h3 {
+  font-size: 1.5em;
   margin: 10px;
 }
 
-.input-container {
-  display: flex;
-  justify-content: space-evenly;
+/* input {
+  margin: 10px;
+} */
+
+.input-cont {
   align-items: center;
-  width: 60%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.input-cont label{
+  margin-right: 10px;
+}
+
+.date label {
+  margin: 7px 0px;
+}
+
+.main {
+ align-items: center;
+ display: flex;
+ justify-content: center;
+}
+
+/* .msg {
+  align-items: center;
+  border-top: 1px solid #333;
+  display: flex;
+  justify-content: flex-start;
+} */
+.msg-card {
+  margin: 10px;
+  padding: 10px;
+}
+
+.msg-cont {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 52vh;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  width: 65%;
+}
+
+/* .msg-text {
+  padding: 5px 20px;
+} */
+
+.msg-left {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.msg-right {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.send {
+  display: grid;
+  grid-template-rows: 25% 50%;
+}
+
+.sendbtn-box {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }
