@@ -3,6 +3,8 @@ A simple web app displaying the power of Plivo's Messaging API.
 
 ![SMSsenger demo](./public/sender.gif)
 
+[Video Demo](https://www.youtube.com/watch?v=6JlqYxLVb4s)
+
 ## Features
 
 This app:
