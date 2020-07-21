@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 import axios from "axios";
 
 const initialState = {
-  number: "",
+  number: "12106729886",
   message: "",
 };
 
